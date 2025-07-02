@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { HiOutlineHome, HiOutlineUser, HiOutlineOfficeBuilding, HiOutlineKey } from 'react-icons/hi';
 
 const Welcome = () => {
