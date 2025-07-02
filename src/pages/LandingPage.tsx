@@ -14,7 +14,7 @@ const LandingPage = () => {
 
       const navTimer = setTimeout(() => {
         navigate('/skip');
-      }, 2000); // Navigate after 5 sec
+      }, 10000); // Navigate after 5 sec
 
       return () => clearTimeout(navTimer);
     }, 200); // Show landing content after initial render
