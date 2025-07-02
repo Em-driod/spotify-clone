@@ -14,10 +14,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/skip" element={<Skips />} />
         <Route path="/welcome" element={<Welcome />} />
-        {/* Add more routes as needed */}
-        {/* Example: <Route path="/another-page" element={<AnotherPage />} /> */}
-        {/* Add more routes as needed */}
-        {/* <Route path="/another-page" element={<AnotherPage />} /> */}
+      
       </Routes>
     </AnimatePresence>
   );
