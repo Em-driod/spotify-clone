@@ -1,0 +1,34 @@
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
+import LandingPage from './pages/LandingPage';
+import Welcome from './pages/welcome';
+import Skips from './pages/Skips';
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/skip" element={<Skips />} />
+        <Route path="/welcome" element={<Welcome />} />
+        {/* Add more routes as needed */}
+        {/* Example: <Route path="/another-page" element={<AnotherPage />} /> */}
+        {/* Add more routes as needed */}
+        {/* <Route path="/another-page" element={<AnotherPage />} /> */}
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AnimatedRoutes />
+    </Router>
+  );
+};
+
+export default App;
