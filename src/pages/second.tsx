@@ -5,6 +5,7 @@ const Second = () => {
     <div className="min-h-screen bg-gray-50 font-sans pb-8">
       {/* Header */}
       <div className="flex items-center p-5 bg-white shadow-sm">
+        <Link to="/first" className="flex items-center">
         <svg
           width="24"
           height="24"
@@ -12,7 +13,7 @@ const Second = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="mr-4 cursor-pointer text-gray-700"
-        >
+          >
           <path
             d="M15 18L9 12L15 6"
             stroke="currentColor"
@@ -21,6 +22,7 @@ const Second = () => {
             strokeLinejoin="round"
           />
         </svg>
+            </Link>
         <h1 className="text-xl font-bold text-gray-800">
           Add new listing
         </h1>
