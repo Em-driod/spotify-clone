@@ -167,7 +167,7 @@ const Second = () => {
             id="description"
             value="Spacious 2 bedroom flat with water and light"
             className="w-full px-4 py-3 border border-gray-300 rounded-md text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            // Making it read-only to match the cloned image
+          
           />
         </div>
         <button

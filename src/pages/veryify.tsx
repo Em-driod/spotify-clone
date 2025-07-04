@@ -48,9 +48,10 @@ const Welcome = () => {
       </div>
 
       {/* Sign in */}
-      <p className="text-xs text-gray-500 mt-12">
-        Already have an account?{' '}
-        <span className="text-blue-600 cursor-pointer hover:underline">Sign in</span>
+      <p className="text-xs text-gray-500 mt-2 ml-56">
+        <Link to="/back">
+          <span className="text-blue-600 cursor-pointer hover:underline">Sign in</span>
+        </Link>
       </p>
     </div>
   );

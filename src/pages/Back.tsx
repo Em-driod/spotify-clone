@@ -7,9 +7,10 @@ const Back = () => {
   return (
     <div className="min-h-screen flex flex-col px-6 py-8 bg-white text-black">
       {/* Back Arrow */}
-      <div className="mb-6">
+      <Link to="/welcome" className="mb-6">
         <FaArrowLeft className="text-xl cursor-pointer" />
-      </div>
+      </Link>
+   
 
       {/* Heading */}
       <div className="text-center mb-8">
@@ -70,7 +71,9 @@ const Back = () => {
       <div className="text-center mt-6 text-sm">
         Don’t have an account?{' '}
         <button className="text-blue-600 hover:underline font-medium">
-          Sign up
+          <Link to="/signup">
+            Sign up
+          </Link>
         </button>
       </div>
     </div>

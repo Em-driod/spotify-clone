@@ -1,10 +1,11 @@
-
+import { Link } from "react-router-dom";
 
 const Otp = () => {
   return (
     <div className="min-h-screen flex flex-col items-center  font-sans">
       <div className="w-full p-8">
         <div className="flex items-center mb-8">
+         < Link to="/back" >
           <svg
             width="24"
             height="24"
@@ -21,6 +22,7 @@ const Otp = () => {
               strokeLinejoin="round"
             />
           </svg>
+          </Link>
           <h1 className="text-2xl font-bold text-gray-800">
             Verify code
           </h1>

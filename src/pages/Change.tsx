@@ -1,10 +1,11 @@
-
+import { Link } from "react-router-dom";
 
 const Change = () => {
   return (
     <div className="min-h-screen flex flex-col items-center p-2 bg-gray-50 font-sans">
       <div className="w-full mt-14  p-4">
         <div className="flex items-center mb-0 ">
+          <Link to="/back" className="flex items-center">
           <svg
             width="24"
             height="24"
@@ -12,15 +13,16 @@ const Change = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="mr-4 cursor-pointer text-gray-700"
-          >
+            >
             <path
               d="M15 18L9 12L15 6"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-            />
+              />
           </svg>
+              </Link>
           <h1 className="text-3xl text-center font-bold text-gray-800">
             Forgot password
           </h1>
@@ -46,7 +48,9 @@ const Change = () => {
           className="w-full py-3 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300
                     bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000]"
         >
-          Send OTP
+          <Link to="/Otp" className="flex items-center justify-center h-full">
+            Send OTP
+          </Link>
         </button>
       </div>
     </div>
