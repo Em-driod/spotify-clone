@@ -1,57 +1,62 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaArrowDown } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [show, setShow] = useState(false); // ⏳ simulate loading
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    // Simulate page fully loaded before countdown begins
     const loadTimer = setTimeout(() => {
       setShow(true);
 
       const navTimer = setTimeout(() => {
         navigate('/skip');
-      }, 10000); // Navigate after 5 sec
+      }, 10000);
 
       return () => clearTimeout(navTimer);
-    }, 200); // Show landing content after initial render
+    }, 200);
 
     return () => clearTimeout(loadTimer);
   }, [navigate]);
 
-  if (!show) return null; // Don't render until "loaded"
+  if (!show) return null;
 
   return (
     <motion.div
-      className="bg-gradient-to-b from-[#0d1b2a] via-[#4b0082] to-[#8b0000] h-screen w-full flex flex-col justify-center items-center px-4"
+      className="relative h-screen w-full flex flex-col justify-center items-center bg-black overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className='flex justify-center items-center mb-6 mt-16'>
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
         <img
-          src="/fan.png"
-          alt="AI Concept"
-          className='h-64 w-64 object-contain'
+          src="/Splash.png" // Replace with your background image path
+          alt="Background"
+          className="w-full h-full object-cover opacity-40"
         />
       </div>
 
-      <div className='text-center space-y-3'>
-        <p className='text-white text-4xl font-extrabold tracking-wide'>Spacefinder NG</p>
-        <p className='text-white text-lg font-light italic px-4'>Verify Listings. Real Contacts. Your New Home.</p>
-      </div>
+      {/* Content Container */}
+      <div className="relative z-10 text-center text-white">
+        {/* Top Image */}
+        <div className="flex justify-center mb-8">
+          <img
+            src="/fan.png" // Replace with your logo/image path
+            alt="Spacefinder Logo"
+            className="h-32 w-32 object-contain"
+          />
+        </div>
 
-      <motion.div
-        className='mt-10 text-white text-2xl'
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 10.5, repeat: Infinity }}
-      >
-        <FaArrowDown />
-      </motion.div>
+        {/* Text Content */}
+        <h1 className="text-4xl font-bold mb-4">Spacefinder NG</h1>
+        <div className="text-lg leading-relaxed">
+          <p>Verify Listings.Real Contacts.</p>
+          <p>Your New Home</p>
+        </div>
+      </div>
     </motion.div>
   );
 };

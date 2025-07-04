@@ -1,5 +1,6 @@
 
 import { HiOutlineHome, HiOutlineUser, HiOutlineOfficeBuilding, HiOutlineKey } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 const Welcome = () => {
   return (
@@ -18,24 +19,30 @@ const Welcome = () => {
         <button className="w-full border border-blue-400 rounded-xl p-4 flex items-center gap-3 hover:bg-blue-50 transition">
           <HiOutlineUser className="text-blue-500 text-xl" />
           <div className="text-left">
+            <Link to="/back" >
             <p className="text-sm font-semibold text-black">I'm looking for a property</p>
             <p className="text-xs text-gray-500">Find your next home</p>
+            </Link>
           </div>
         </button>
 
         <button className="w-full border border-green-400 rounded-xl p-4 flex items-center gap-3 hover:bg-green-50 transition">
           <HiOutlineOfficeBuilding className="text-green-500 text-xl" />
           <div className="text-left">
-            <p className="text-sm font-semibold text-black">I'm a Real Estate Agent</p>
-            <p className="text-xs text-gray-500">List and manage properties</p>
+            <Link to="/back">
+              <p className="text-sm font-semibold text-black">I'm a Real Estate Agent</p>
+              <p className="text-xs text-gray-500">List and manage properties</p>
+            </Link>
           </div>
         </button>
 
         <button className="w-full border border-orange-400 rounded-xl p-4 flex items-center gap-3 hover:bg-orange-50 transition">
           <HiOutlineKey className="text-orange-500 text-xl" />
           <div className="text-left">
-            <p className="text-sm font-semibold text-black">I'm a Landlord</p>
-            <p className="text-xs text-gray-500">Rent out my properties</p>
+            <Link to="/back">
+              <p className="text-sm font-semibold text-black">I'm a Landlord</p>
+              <p className="text-xs text-gray-500">Rent out my properties</p>
+            </Link>
           </div>
         </button>
       </div>
