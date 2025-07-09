@@ -12,7 +12,7 @@ const LandingPage = () => {
 
       const navTimer = setTimeout(() => {
         navigate('/skip');
-      }, 2000);
+      }, 10000);
 
       return () => clearTimeout(navTimer);
     }, 200);

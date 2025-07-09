@@ -12,7 +12,7 @@ import Fourth from './pages/fourth';
 import Third from './pages/Third';
 import Fifth from './pages/fifth';
 import Signup from './pages/Signup';
-import Manage from  './pages/Manage'
+import Manage
 
 
 const AnimatedRoutes = () => {
@@ -33,7 +33,6 @@ const AnimatedRoutes = () => {
         <Route path="/fourth" element={<Fourth />} />
         <Route path="/fifth" element={<Fifth />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/Manage" element={<Manage />} />
         {/* Add more routes as needed */}
 
       </Routes>
