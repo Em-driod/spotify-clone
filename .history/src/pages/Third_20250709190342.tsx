@@ -36,7 +36,7 @@ const Third = () => {
         {/* Go to manage listing Button */}
         <Link to='/manage'>
         <button
-          className="w-full max-w-sm py-4 px-6 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
+          className="w-full max-w-sm py-4 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
           bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] hover:from-purple-900 hover:to-purple-600"
           >
           Go to manage listing

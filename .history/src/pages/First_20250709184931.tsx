@@ -226,7 +226,7 @@ const First = () => {
           </svg>
           <span className="text-xs mt-1">Search</span>
         </button>
-        <Link to='/messages'>
+        <Link='/messages'></Link>
         <button className="flex flex-col items-center text-gray-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -234,17 +234,16 @@ const First = () => {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            >
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
               d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 4v-4z"
-              />
+            />
           </svg>
           <span className="text-xs mt-1">Messages</span>
         </button>
-              </Link>
         <button className="flex flex-col items-center text-gray-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"

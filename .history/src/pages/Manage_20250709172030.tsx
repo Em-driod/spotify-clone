@@ -1,7 +1,6 @@
-import React, { useState, useMemo } from 'react';
-import { IoIosArrowBack } from 'react-icons/io';
+import React, { useState, useMemo } from 'react'; // Import useMemo
+import { IoIosArrowBack, IoIosArrowDown } from 'react-icons/io';
 import { MdEdit, MdDelete } from 'react-icons/md';
-import { Link } from "react-router-dom";
 
 // Define the interface for a Listing object
 interface Listing {
@@ -101,11 +100,11 @@ const Manage: React.FC = () => {
         (listing) =>
           listing.type.toLowerCase().includes(lowerCaseQuery) ||
           listing.location.toLowerCase().includes(lowerCaseQuery) ||
-          listing.price.toLowerCase().includes(lowerCaseQuery)
+          listing.price.toLowerCase().includes(lowerCaseQuery) // You might want to filter price differently
       );
     }
 
-    // Apply status/specific filter (using the statusFilterQuery, previously 'all listings' related)
+    // Apply status/specific filter
     if (statusFilterQuery) {
       const lowerCaseStatusQuery = statusFilterQuery.toLowerCase();
       currentListings = currentListings.filter(
@@ -117,31 +116,26 @@ const Manage: React.FC = () => {
   }, [listings, generalSearchQuery, statusFilterQuery]); // Re-calculate when these dependencies change
 
   return (
-    <div className="min-h-screen p-4 sm:p-6 md:p-8 bg-white text-black font-sans">
+    <div className="min-h-screen p-5 bg-white text-black font-sans">
       {/* Header */}
-      <div className="flex items-center mb-6 sm:mb-8">
-        <Link to='/third'>
-        <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
-        </Link>
-        <h1 className="text-xl sm:text-2xl font-bold text-center flex-grow">Manage Listing</h1>
+      <div className="flex items-center mb-8">
+        <IoIosArrowBack size={24} className="text-gray-600 mr-5 cursor-pointer" />
+        <h1 className="text-2xl font-bold text-center flex-grow">Manage listing</h1>
       </div>
 
       {/* Search and Filter Inputs */}
-      {/* Inputs are now always side-by-side using flex and w-1/2 for equal width */}
-      <div className="flex gap-2 mb-5"> {/* Reduced gap slightly for tighter fit on mobile */}
+      <div className="flex justify-between mb-5">
         <input
           type="text"
-          placeholder="Search listings..."
-          // Use w-1/2 for equal width, py-2 and px-3 for smaller padding on mobile
-          className="w-1/2 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5a1f8e] text-black bg-white text-xs sm:text-sm md:text-base"
+          placeholder="Search listings (type, location, price)..."
+          className="flex-1 mr-2 px-5 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5a1f8e] text-black bg-white"
           value={generalSearchQuery}
           onChange={(e) => setGeneralSearchQuery(e.target.value)}
         />
         <input
           type="text"
-          placeholder="All listings..."
-          // Use w-1/2 for equal width, py-2 and px-3 for smaller padding on mobile
-          className="w-1/2 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#8a2be2] text-black bg-white text-xs sm:text-sm md:text-base"
+          placeholder="Filter by status (e.g., Approved)..."
+          className="px-5 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#8a2be2] text-black bg-white"
           value={statusFilterQuery}
           onChange={(e) => setStatusFilterQuery(e.target.value)}
         />
@@ -151,30 +145,29 @@ const Manage: React.FC = () => {
       <div>
         {filteredListings.length > 0 ? (
           filteredListings.map((listing: Listing) => (
-            <div key={listing.id} className="bg-white rounded-xl p-3 mb-3 flex items-start shadow-md sm:p-4 sm:mb-4">
-              <div className="relative mr-3 sm:mr-4">
-                {/* Verified Badge - adjusted size/position for mobile */}
-                <span className="absolute top-0.5 left-0.5 bg-green-500 text-white text-[0.6rem] px-1.5 py-0.5 rounded-md z-10 sm:text-xs">Verified</span>
-                <img src={listing.image} alt={listing.type} className="w-16 h-16 rounded-lg object-cover sm:w-20 sm:h-20" />
+            <div key={listing.id} className="bg-white rounded-xl p-4 mb-4 flex items-start shadow-lg">
+              <div className="relative mr-4">
+                {/* Verified Badge */}
+                <span className="absolute top-1 left-1 bg-green-500 text-white text-xs px-2 py-1 rounded-md z-10">Verified</span>
+                <img src={listing.image} alt={listing.type} className="w-20 h-20 rounded-lg object-cover" />
               </div>
               <div className="flex-1 min-w-0">
-                {/* Text sizes adjusted for mobile */}
-                <h3 className="text-sm font-bold mb-0.5 break-words sm:text-base">{listing.type}</h3>
-                <p className="text-xs text-black font-bold mb-0.5 sm:text-sm">{listing.price}</p>
-                <p className="text-[0.7rem] text-black italic mb-1 sm:text-xs">{listing.location}</p>
-                <div className="flex items-center justify-between mt-1 sm:mt-2">
-                  <p className="text-xs text-black  sm:text-sm">{listing.status}</p>
-                  <div className="flex items-center space-x-3 sm:space-x-4"> {/* Adjusted spacing for actions */}
-                    <MdEdit size={18} className="text-gray-400 cursor-pointer" onClick={() => handleEdit(listing.id)} />
-                    <MdDelete size={18} className="text-gray-400 cursor-pointer" onClick={() => handleDelete(listing.id)} />
-                    <IoIosArrowBack size={18} className="text-gray-400 cursor-pointer rotate-180" />
+                <h3 className="text-base font-bold mb-1 break-words">{listing.type}</h3>
+                <p className="text-sm text-black mb-0.5">{listing.price}</p>
+                <p className="text-xs text-black-400 italic mb-2">{listing.location}</p>
+                <div className="flex items-center justify-between mt-2">
+                  <p className="text-xs text-black font-bold">{listing.status}</p>
+                  <div className="flex items-center">
+                    <MdEdit size={20} className="text-gray-400 ml-4 cursor-pointer" onClick={() => handleEdit(listing.id)} />
+                    <MdDelete size={20} className="text-gray-400 ml-4 cursor-pointer" onClick={() => handleDelete(listing.id)} />
+                    <IoIosArrowBack size={20} className="text-gray-400 ml-4 cursor-pointer rotate-180" />
                   </div>
                 </div>
               </div>
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-500 text-base mt-8 sm:text-lg">No listings match your search criteria.</p>
+          <p className="text-center text-gray-500 text-lg mt-10">No listings match your search criteria.</p>
         )}
       </div>
     </div>

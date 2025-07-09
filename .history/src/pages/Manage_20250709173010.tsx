@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { MdEdit, MdDelete } from 'react-icons/md';
-import { Link } from "react-router-dom";
 
 // Define the interface for a Listing object
 interface Listing {
@@ -120,9 +119,7 @@ const Manage: React.FC = () => {
     <div className="min-h-screen p-4 sm:p-6 md:p-8 bg-white text-black font-sans">
       {/* Header */}
       <div className="flex items-center mb-6 sm:mb-8">
-        <Link to='/third'>
         <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
-        </Link>
         <h1 className="text-xl sm:text-2xl font-bold text-center flex-grow">Manage Listing</h1>
       </div>
 

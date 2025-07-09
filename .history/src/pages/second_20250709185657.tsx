@@ -233,16 +233,15 @@ const Second = () => {
             className="w-full px-4 py-3 border border-gray-300 rounded-md text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
-<Link to="/third">
+
         <button
           className="w-full py-4 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
                      bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] hover:from-purple-900 hover:to-purple-600"
         >
-          
+          <Link to="/third">
             Submit
-        </button>
-        
           </Link>
+        </button>
       </div>
     </div>
   );

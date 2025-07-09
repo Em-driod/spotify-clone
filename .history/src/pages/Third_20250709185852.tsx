@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 
 const Third = () => {
   return (
@@ -34,24 +34,20 @@ const Third = () => {
         </p>
 
         {/* Go to manage listing Button */}
-        <Link to='/manage'>
         <button
-          className="w-full max-w-sm py-4 px-6 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
-          bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] hover:from-purple-900 hover:to-purple-600"
-          >
+          className="w-full max-w-sm py-4 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
+                     bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] hover:from-purple-900 hover:to-purple-600"
+        >
           Go to manage listing
         </button>
-          </Link>
 
         {/* Back to dashboard Link */}
-        <Link to='/First'>
         <p
          
-         className="text-purple-700 font-semibold text-base hover:underline"
-         >
+          className="text-purple-700 font-semibold text-base hover:underline"
+        >
           Back to dashboard
         </p>
-          </Link>
       </div>
     </div>
   );

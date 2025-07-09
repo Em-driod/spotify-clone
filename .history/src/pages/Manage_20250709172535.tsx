@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { MdEdit, MdDelete } from 'react-icons/md';
-import { Link } from "react-router-dom";
 
 // Define the interface for a Listing object
 interface Listing {
@@ -120,28 +119,24 @@ const Manage: React.FC = () => {
     <div className="min-h-screen p-4 sm:p-6 md:p-8 bg-white text-black font-sans">
       {/* Header */}
       <div className="flex items-center mb-6 sm:mb-8">
-        <Link to='/third'>
         <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
-        </Link>
         <h1 className="text-xl sm:text-2xl font-bold text-center flex-grow">Manage Listing</h1>
       </div>
 
       {/* Search and Filter Inputs */}
-      {/* Inputs are now always side-by-side using flex and w-1/2 for equal width */}
-      <div className="flex gap-2 mb-5"> {/* Reduced gap slightly for tighter fit on mobile */}
+      {/* Changed to flex-col on mobile, then md:flex for larger screens */}
+      <div className="flex flex-col md:flex-row gap-3 mb-5">
         <input
           type="text"
-          placeholder="Search listings..."
-          // Use w-1/2 for equal width, py-2 and px-3 for smaller padding on mobile
-          className="w-1/2 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5a1f8e] text-black bg-white text-xs sm:text-sm md:text-base"
+          placeholder="Search listings..." // Changed placeholder back
+          className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5a1f8e] text-black bg-white text-sm md:text-base"
           value={generalSearchQuery}
           onChange={(e) => setGeneralSearchQuery(e.target.value)}
         />
         <input
           type="text"
-          placeholder="All listings..."
-          // Use w-1/2 for equal width, py-2 and px-3 for smaller padding on mobile
-          className="w-1/2 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#8a2be2] text-black bg-white text-xs sm:text-sm md:text-base"
+          placeholder="All listings..." // Changed placeholder back
+          className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#8a2be2] text-black bg-white text-sm md:text-base"
           value={statusFilterQuery}
           onChange={(e) => setStatusFilterQuery(e.target.value)}
         />
@@ -160,10 +155,10 @@ const Manage: React.FC = () => {
               <div className="flex-1 min-w-0">
                 {/* Text sizes adjusted for mobile */}
                 <h3 className="text-sm font-bold mb-0.5 break-words sm:text-base">{listing.type}</h3>
-                <p className="text-xs text-black font-bold mb-0.5 sm:text-sm">{listing.price}</p>
-                <p className="text-[0.7rem] text-black italic mb-1 sm:text-xs">{listing.location}</p>
+                <p className="text-xs text-black mb-0.5 sm:text-sm">{listing.price}</p>
+                <p className="text-[0.7rem] text-gray-600 italic mb-1 sm:text-xs">{listing.location}</p>
                 <div className="flex items-center justify-between mt-1 sm:mt-2">
-                  <p className="text-xs text-black  sm:text-sm">{listing.status}</p>
+                  <p className="text-xs text-black font-bold sm:text-sm">{listing.status}</p>
                   <div className="flex items-center space-x-3 sm:space-x-4"> {/* Adjusted spacing for actions */}
                     <MdEdit size={18} className="text-gray-400 cursor-pointer" onClick={() => handleEdit(listing.id)} />
                     <MdDelete size={18} className="text-gray-400 cursor-pointer" onClick={() => handleDelete(listing.id)} />

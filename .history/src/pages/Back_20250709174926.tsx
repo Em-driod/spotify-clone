@@ -55,7 +55,7 @@ const Back = () => {
         <Link to="/first">
         <button
           type="submit"
-          className="mt-4 py-3 px-32 ml-5 rounded-md text-white text-sm font-semibold"
+          className="mt-4 py-3 px-14 rounded-md text-white text-sm font-semibold"
           style={{
               background: 'linear-gradient(to right, #0d1b2a, #4b0082, #8b0000)',
             }}

@@ -16,20 +16,17 @@ const Welcome = () => {
 
       {/* Options */}
       <div className="w-full max-w-xs space-y-4">
-         <Link to="/back" >
         <button className="w-full border border-blue-400 rounded-xl p-4 flex items-center gap-3 hover:bg-blue-50 transition">
           <HiOutlineUser className="text-blue-500 text-xl" />
           <div className="text-left">
-           
+            <Link to="/back" >
             <p className="text-sm font-semibold text-black">I'm looking for a property</p>
             <p className="text-xs text-gray-500">Find your next home</p>
-           
+            </Link>
           </div>
         </button>
- </Link>
-
-<Link to="/back" >
-        <button className="w-full border mt-5 border-green-400 rounded-xl p-4 flex items-center gap-3 hover:bg-green-50 transition">
+<Link to="/back" className='mb-5'>
+        <button className="w-full border border-green-400 rounded-xl p-4 flex items-center gap-3 hover:bg-green-50 transition">
           <HiOutlineOfficeBuilding className="text-green-500 text-xl" />
           <div className="text-left">
             
@@ -41,7 +38,7 @@ const Welcome = () => {
         </button>
          </Link>
  <Link to="/back">
-        <button className="w-full border mt-5 border-orange-400 rounded-xl p-4 flex items-center gap-3 hover:bg-orange-50 transition">
+        <button className="w-full border border-orange-400 rounded-xl p-4 flex items-center gap-3 hover:bg-orange-50 transition">
           <HiOutlineKey className="text-orange-500 text-xl" />
           <div className="text-left">
            
