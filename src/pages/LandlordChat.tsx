@@ -19,17 +19,18 @@ interface Conversation {
 const dummyConversations: Conversation[] = [
   {
     id: 'conv1',
-    tenantName: 'John Doe',
+    tenantName: 'Sheen',
     propertyTitle: 'Spacious 2-Bedroom Flat',
     messages: [
       { id: 'msg1', sender: 'tenant', text: 'Is the 2-bedroom flat still available?', timestamp: '10:00 AM' },
       { id: 'msg2', sender: 'landlord', text: 'Yes, it is! When would you like to view it?', timestamp: '10:05 AM' },
       { id: 'msg3', sender: 'tenant', text: 'How about tomorrow at 2 PM?', timestamp: '10:15 AM' },
+      
     ],
   },
   {
     id: 'conv2',
-    tenantName: 'Jane Smith',
+    tenantName: 'Adisa',
     propertyTitle: 'Cozy Studio Apartment',
     messages: [
       { id: 'msg4', sender: 'tenant', text: 'What are the payment terms for the studio?', timestamp: 'Yesterday 3:00 PM' },

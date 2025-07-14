@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { IoIosArrowBack } from 'react-icons/io';
 // import { MdEdit, MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
@@ -112,15 +113,47 @@ const Customer: React.FC = () => {
 
   return (
     <div className="min-h-screen p-4 sm:p-6 md:p-8 bg-white text-black font-sans">
-     
-      {/* Header */}
-      <div className="flex items-center mb-6 sm:mb-8">
-        <Link to='/signup'>
-          <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
-        </Link>
-        <h1 className="text-xl sm:text-2xl font-bold text-center flex-grow"> Check house</h1>
-       
-      </div>
+      {/* Animated Top Section */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, type: 'spring', bounce: 0.35 }}
+        className="mb-6 sm:mb-8"
+      >
+        <div className="flex items-center">
+          <Link to='/signup'>
+            <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
+          </Link>
+          <motion.h1
+            className="text-xl sm:text-2xl font-extrabold text-center flex-grow bg-gradient-to-r from-[#6a1bc9] via-[#8a2be2] to-[#4b0082] bg-clip-text text-transparent drop-shadow-md"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.15, type: 'spring', bounce: 0.3 }}
+          >
+            Discover Your Next Home
+          </motion.h1>
+        </div>
+        {/* Extra animated content */}
+        <motion.div
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6, type: 'spring', bounce: 0.4 }}
+          className="mt-2 flex items-center justify-between px-2"
+        >
+          <span className="text-xs sm:text-sm text-[#6a1bc9] font-semibold bg-[#f3e8ff] px-3 py-1 rounded-full shadow-sm animate-pulse">
+            Welcome! Find your next home easily
+          </span>
+          <motion.img
+            src="/public/Frame 1.png"
+            alt="Decorative"
+            className="w-8 h-8 sm:w-10 sm:h-10 ml-2 drop-shadow-lg"
+            initial={{ rotate: -10 }}
+            animate={{ rotate: 0 }}
+            transition={{ type: 'spring', stiffness: 120, delay: 0.5 }}
+            style={{ background: 'linear-gradient(135deg, #6a1bc9 30%, #8a2be2 100%)', borderRadius: '50%' }}
+          />
+        </motion.div>
+      </motion.div>
 
       {/* Search and Filter Inputs */}
       <div className="flex gap-2 mb-5">

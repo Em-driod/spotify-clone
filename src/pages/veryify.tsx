@@ -40,7 +40,7 @@ const Welcome = () => {
            
         </button>
          </Link>
- <Link to="/landlordDashboard" >
+ <Link to="/landsignin" >
         <button className="w-full border mt-5 border-orange-400 rounded-xl p-4 flex items-center gap-3 hover:bg-orange-50 transition">
           <HiOutlineKey className="text-orange-500 text-xl" />
           <div className="text-left">
