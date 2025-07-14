@@ -16,6 +16,10 @@ import Manage from './pages/Manage';
 import ChatFeature from './pages/ChatFeature';
 import Customer from './pages/Customer'; // Import the Customer component
 import Custdetail from './pages/Custdetail'; // Import the Custdetail component
+import LandlordDashboard from './pages/LandlordDashboard';
+import LandlordChats from './pages/LandlordChat';
+import MyListings from './pages/MyListing';
+import EditListing from './pages/EditListing';
 
 // Import the Edit component
 import Edit from './pages/Edit'; // <--- Make sure this path is correct based on where you saved Edit.tsx
@@ -42,6 +46,33 @@ const AnimatedRoutes = () => {
         <Route path="/Manage" element={<Manage />} />
         <Route path="/messages" element={<ChatFeature />} />
         <Route path="/Customer" element={<Customer />} />
+        <Route path='/LandlordDashboard' element={<LandlordDashboard />} />
+        <Route path='/LandlordChats' element={<LandlordChats />} />
+        <Route
+          path='/MyListings'
+          element={
+            <MyListings
+              properties={[]} // Replace with actual properties array or state
+              onEdit={() => {}} // Replace with actual handler
+              onDelete={() => {}} // Replace with actual handler
+              onChat={() => {}} // Replace with actual handler
+            />
+          }
+        />
+        <Route
+          path='/EditListing'
+          element={
+            <EditListing
+              onSave={() => {
+                // TODO: Implement save logic
+              }}
+              onCancel={() => {
+                // TODO: Implement cancel logic
+              }}
+            />
+          }
+        />
+
         {/* Add the route for Customer component */}
         <Route path="/Custdetail" element={<Custdetail />} />
 
