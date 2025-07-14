@@ -15,11 +15,11 @@ import Signup from './pages/Signup';
 import Manage from './pages/Manage';
 import ChatFeature from './pages/ChatFeature';
 import Customer from './pages/Customer'; // Import the Customer component
- // Import the Custdetail component
+import Custdetail from './pages/Custdetail'; // Import the Custdetail component
 
 // Import the Edit component
 import Edit from './pages/Edit'; // <--- Make sure this path is correct based on where you saved Edit.tsx
-import Custdetail from './pages/Custdetail';
+
 
 const AnimatedRoutes = () => {
   const location = useLocation();

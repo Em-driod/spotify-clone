@@ -115,10 +115,10 @@ const Customer: React.FC = () => {
      
       {/* Header */}
       <div className="flex items-center mb-6 sm:mb-8">
-        <Link to='/third'>
+        <Link to='/signup'>
           <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
         </Link>
-        <h1 className="text-xl sm:text-2xl font-bold text-center flex-grow">Manage Listing</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-center flex-grow"> Check house</h1>
        
       </div>
 
@@ -126,14 +126,14 @@ const Customer: React.FC = () => {
       <div className="flex gap-2 mb-5">
         <input
           type="text"
-          placeholder="Search listings..."
+          placeholder="Search house..."
           className="w-1/2 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5a1f8e] text-black bg-white text-xs sm:text-sm md:text-base"
           value={generalSearchQuery}
           onChange={(e) => setGeneralSearchQuery(e.target.value)}
         />
         <input
           type="text"
-          placeholder="All listings..."
+          placeholder="All house..."
           className="w-1/2 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#8a2be2] text-black bg-white text-xs sm:text-sm md:text-base"
           value={statusFilterQuery}
           onChange={(e) => setStatusFilterQuery(e.target.value)}

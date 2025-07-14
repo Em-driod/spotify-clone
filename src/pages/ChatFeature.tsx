@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import ChatList from './ChatList'; // Adjust path if needed
+import ChatList from './custChatList';
 import ChatScreen from './ChatScreen'; // Adjust path if needed
 import { chats } from './data'; // Adjust path if needed
 import { Chat } from './types'; // Adjust path if needed
@@ -21,7 +21,7 @@ const ChatFeature: React.FC = () => {
 
   const selectedChat: Chat | undefined = selectedChatId
     ? chats.find((chat) => chat.id === selectedChatId)
-    : undefined; // Use undefined for clarity if not found
+    : undefined;
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>

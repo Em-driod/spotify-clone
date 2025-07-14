@@ -45,9 +45,11 @@ const Custdetail = () => {
 
       {/* Action Buttons */}
       <div className="w-full max-w-md flex flex-col space-y-3 px-4">
-        <button className="w-full bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] text-white py-3 rounded-lg font-semibold text-lg hover:bg-indigo-800 transition-colors duration-200">
-          Chat now
-        </button>
+        <Link to="/messages">
+          <button className="w-full bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] text-white py-3 rounded-lg font-semibold text-lg hover:bg-indigo-800 transition-colors duration-200">
+            Chat now
+          </button>
+        </Link>
         <button className="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold text-lg hover:bg-gray-300 transition-colors duration-200">
           Report listing
         </button>
