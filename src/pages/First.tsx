@@ -12,8 +12,15 @@ const First = () => {
         }}></div>
 
         <div className="relative z-10">
-          <p className="text-xl font-bold mb-1 flex items-center">
-            Welcome back! <span role="img" aria-label="waving hand" className="ml-2 text-2xl">👋</span>
+          <p className="text-xl font-bold mb-1 flex items-center justify-between">
+            Welcome back! <span role="img" aria-label="waving hand" className="ml-2 text-2xl">👋</span>   <Link to='/signup'>
+        <button
+          className="w-full max-w-sm py-2 px-2 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
+          bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] hover:from-purple-900 hover:to-purple-600"
+          >
+          Log out
+        </button>
+          </Link>
           </p>
           <p className="text-sm opacity-90">
             Manage your property listings

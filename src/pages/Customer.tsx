@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
-import { MdEdit, MdDelete } from 'react-icons/md';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+// import { MdEdit, MdDelete } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 // Define the interface for a Listing object
 export interface Listing { // Export Listing interface if Edit.tsx needs it
@@ -13,14 +13,14 @@ export interface Listing { // Export Listing interface if Edit.tsx needs it
   status: string;
 }
 
-const Manage: React.FC = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+const Customer: React.FC = () => {
+  // const navigate = useNavigate(); // Removed unused navigate
 
   // Initialize listings using useState with the Listing array type
-  const [listings, setListings] = useState<Listing[]>([
+  const [listings] = useState<Listing[]>([
     {
       id: 1,
-      image: '/images/bedroom-apartment.png', // Corrected path assumption
+      image: '/bed1.png', // Corrected path assumption
       type: '2-Bedroom Apartment in Ilorin.',
       price: '₦ 450,000/year',
       location: 'Ilorin, tanke area.',
@@ -28,7 +28,7 @@ const Manage: React.FC = () => {
     },
     {
       id: 2,
-      image: '/images/duplex.png', // Corrected path assumption
+      image: '/bed2.png', // Corrected path assumption
       type: '2-Bedroom Duplex in Ilorin.',
       price: '₦ 600,000/year',
       location: 'Ilorin, Agric estate.',
@@ -36,7 +36,7 @@ const Manage: React.FC = () => {
     },
     {
       id: 3,
-      image: '/images/room-parlour.png', // Corrected path assumption
+      image: '/bed 1.png', // Corrected path assumption
       type: 'A room and parlour in Ilorin.',
       price: '₦ 220,000/year',
       location: 'Ilorin, pipeline area.',
@@ -44,7 +44,7 @@ const Manage: React.FC = () => {
     },
     {
       id: 4,
-      image: '/images/room.png', // Corrected path assumption
+      image: '/bed.png', // Corrected path assumption
       type: 'A room in Ilorin.',
       price: '₦ 150,000/year',
       location: 'Ilorin, tanke area.',
@@ -52,7 +52,7 @@ const Manage: React.FC = () => {
     },
     {
       id: 5,
-      image: '/images/self-contain.png', // Corrected path assumption
+      image: '/bed1.png', // Corrected path assumption
       type: 'Self contain in Ilorin.',
       price: '₦ 250,000/year',
       location: 'Ilorin, tanke area.',
@@ -65,20 +65,23 @@ const Manage: React.FC = () => {
   // State for the "All listings" filter/search input (e.g., for status, or another specific filter)
   const [statusFilterQuery, setStatusFilterQuery] = useState<string>('');
 
-  // Modified handleEdit to navigate and pass listing data
-  const handleEdit = (id: number) => {
-    const listingToEdit = listings.find((listing) => listing.id === id);
-    if (listingToEdit) {
-      // Navigate to the /edit page, passing the listing data as state
-      navigate('/edit', { state: { listing: listingToEdit } });
+  // State for showing the details popup
+  const [showDetails, setShowDetails] = useState(false);
+  const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
+
+  // Handle checking details (show popup)
+  const handleCheckDetails = (id: number) => {
+    const listingToView = listings.find((listing) => listing.id === id);
+    if (listingToView) {
+      setSelectedListing(listingToView);
+      setShowDetails(true);
     }
   };
 
-  const handleDelete = (id: number) => {
-    if (window.confirm(`Are you sure you want to delete listing with ID: ${id}?`)) {
-      setListings(listings.filter((listing) => listing.id !== id));
-      alert(`Listing with ID: ${id} deleted!`);
-    }
+  // Handle closing the popup
+  const handleCloseDetails = () => {
+    setShowDetails(false);
+    setSelectedListing(null);
   };
 
   // Memoize the filtered listings to avoid unnecessary re-calculations
@@ -116,14 +119,7 @@ const Manage: React.FC = () => {
           <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
         </Link>
         <h1 className="text-xl sm:text-2xl font-bold text-center flex-grow">Manage Listing</h1>
-           <Link to='/manage'>
-        <button
-          className="w-full max-w-sm py-2 px-2 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
-          bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] hover:from-purple-900 hover:to-purple-600"
-          >
-         Approved
-        </button>
-          </Link>
+       
       </div>
 
       {/* Search and Filter Inputs */}
@@ -161,12 +157,14 @@ const Manage: React.FC = () => {
                 <div className="flex items-center justify-between mt-1 sm:mt-2">
                   <p className="text-xs text-black sm:text-sm">{listing.status}</p>
                   <div className="flex items-center space-x-3 sm:space-x-4">
-                    {/* onClick for Edit icon now calls handleEdit */}
-                    <MdEdit size={18} className="text-gray-400 cursor-pointer" onClick={() => handleEdit(listing.id)} />
-                    <MdDelete size={18} className="text-gray-400 cursor-pointer" onClick={() => handleDelete(listing.id)} />
+                    <button
+                      className="px-3 py-1 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 text-xs sm:text-sm"
+                      onClick={() => handleCheckDetails(listing.id)}
+                    >
+                      Check Details
+                    </button>
                     <IoIosArrowBack size={18} className="text-gray-400 cursor-pointer rotate-180" />
                   </div>
-                  
                 </div>
               </div>
             </div>
@@ -175,8 +173,47 @@ const Manage: React.FC = () => {
           <p className="text-center text-gray-500 text-base mt-8 sm:text-lg">No listings match your search criteria.</p>
         )}
       </div>
+
+      {/* Details Popup */}
+      {showDetails && selectedListing && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-sm relative animate-fade-in">
+            <button
+              className="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-lg font-bold"
+              onClick={handleCloseDetails}
+            >
+              ×
+            </button>
+            <div className="flex flex-col items-center">
+              <img src={selectedListing.image} alt={selectedListing.type} className="w-24 h-24 rounded-lg object-cover mb-4" />
+              <h2 className="text-xl font-bold mb-2 text-center">{selectedListing.type}</h2>
+              <p className="text-base text-black font-bold mb-1">{selectedListing.price}</p>
+              <p className="text-sm text-gray-700 mb-1">{selectedListing.location}</p>
+              <p className="text-sm text-green-600 mb-4">{selectedListing.status}</p>
+              <div className="flex gap-3">
+                <button
+                  className="px-4 py-2 bg-gray-300 text-black rounded-lg font-semibold hover:bg-gray-400 transition-all duration-200"
+                  onClick={handleCloseDetails}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200"
+                  onClick={() => {
+                    setShowDetails(false);
+                    setSelectedListing(null);
+                    window.location.href = '/Custdetail';
+                  }}
+                >
+                  More Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Manage;
+export default Customer;

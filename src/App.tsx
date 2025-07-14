@@ -12,10 +12,14 @@ import Fourth from './pages/fourth';
 import Third from './pages/Third';
 import Fifth from './pages/fifth';
 import Signup from './pages/Signup';
-import Manage from  './pages/Manage'
+import Manage from './pages/Manage';
+import ChatFeature from './pages/ChatFeature';
+import Customer from './pages/Customer'; // Import the Customer component
+ // Import the Custdetail component
 
-// Import the new ChatFeature component
-import ChatFeature from './pages/ChatFeature'; // Adjust path based on where you saved it
+// Import the Edit component
+import Edit from './pages/Edit'; // <--- Make sure this path is correct based on where you saved Edit.tsx
+import Custdetail from './pages/Custdetail';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -36,10 +40,15 @@ const AnimatedRoutes = () => {
         <Route path="/fifth" element={<Fifth />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/Manage" element={<Manage />} />
-
-        {/* Add the new route for the chat feature */}
         <Route path="/messages" element={<ChatFeature />} />
-        {/* You could also use "/chat" or any other desired path */}
+        <Route path="/Customer" element={<Customer />} />
+        {/* Add the route for Customer component */}
+        <Route path="/Custdetail" element={<Custdetail />} />
+
+        {/* Add a route for the ChatList if needed */}
+
+        {/* Add the route for the Edit component */}
+        <Route path="/edit" element={<Edit />} /> {/* <--- New Route for Edit page */}
 
         {/* Add more routes as needed */}
       </Routes>

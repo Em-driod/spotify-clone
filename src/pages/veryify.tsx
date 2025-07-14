@@ -16,7 +16,7 @@ const Welcome = () => {
 
       {/* Options */}
       <div className="w-full max-w-xs space-y-4">
-         <Link to="/back" >
+         <Link to="/Customer" >
         <button className="w-full border border-blue-400 rounded-xl p-4 flex items-center gap-3 hover:bg-blue-50 transition">
           <HiOutlineUser className="text-blue-500 text-xl" />
           <div className="text-left">
