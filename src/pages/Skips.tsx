@@ -16,15 +16,16 @@ const Skips = () => {
   
     },
     {
-      image: 'https://via.placeholder.com/400x300/1E90FF/FFFFFF?text=Step+2+Image',
+      image: '/frame 2.png',
       title: 'Intuitive Interface',
-      description: 'Navigate with ease through our user-friendly and modern design.',
-      desp:'fqtghjKJKLM,'
+      description: 'Verified listing only agents.Every property is verified for authentication',
+      desp:'Say goodbye to fake listings and disconnected.'
     },
     {
-      image: 'https://via.placeholder.com/400x300/32CD32/FFFFFF?text=Step+3+Image',
+      image: '/frame 3.png',
       title: 'Get Started Instantly',
-      description: 'It\'s simple to begin your journey. Just a few clicks away!',
+      description: 'Direct Communication',
+      desp: 'Connect directly with agents and landlords through secure in-app messaging, Whatsapp, or phone calls!',
     },
   ];
 
