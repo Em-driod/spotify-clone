@@ -1,4 +1,5 @@
-
+import { Link } from 'react-router-dom';
+import {  IoIosArrowDropright } from 'react-icons/io';
 
 
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +18,8 @@ const CustomerProfile = () => {
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m-6-3h12m0 0l-3-3m3 3l-3 3" />
         </svg>
         Logout
-      </button>
+      </button> 
+     
       <div className="w-full max-w-md bg-white  overflow-hidden">
         {/* Profile Header */}
         <div className="relative h-32 bg-gradient-to-r from-pink-500 to-indigo-600">
@@ -34,6 +36,9 @@ const CustomerProfile = () => {
 
         {/* User Info */}
         <div className="text-center p-6 pt-16">
+           <Link className='left-20' to='/Customer'>
+          <IoIosArrowDropright size={44} className="text-gray-600 ml-60 mr-4 cursor-pointer" />
+        </Link>
           <h2 className="text-2xl font-bold text-gray-800">Abeki</h2>
           <p className="text-gray-600">abeki@example.com</p>
           <p className="text-gray-600">+234123-4567</p>
