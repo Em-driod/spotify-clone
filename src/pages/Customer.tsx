@@ -230,6 +230,7 @@ const Customer: React.FC = () => {
                 >
                   Cancel
                 </button>
+                <Link to="/Custdetail">
                 <button
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200"
                   onClick={() => {
@@ -237,9 +238,10 @@ const Customer: React.FC = () => {
                     setSelectedListing(null);
                     window.location.href = '/Custdetail';
                   }}
-                >
+                  >
                   More Details
                 </button>
+                  </Link>
               </div>
             </div>
           </div>
