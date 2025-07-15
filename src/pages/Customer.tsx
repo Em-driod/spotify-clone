@@ -121,7 +121,7 @@ const Customer: React.FC = () => {
         className="mb-6 sm:mb-8"
       >
         <div className="flex items-center">
-          <Link to='/signup'>
+          <Link to='/customerProfile'>
             <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
           </Link>
           <motion.h1

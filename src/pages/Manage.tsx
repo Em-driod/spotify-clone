@@ -20,7 +20,7 @@ const Manage: React.FC = () => {
   const [listings, setListings] = useState<Listing[]>([
     {
       id: 1,
-      image: '/images/bedroom-apartment.png', // Corrected path assumption
+      image: '/bed1.png', // Corrected p1ath assumption
       type: '2-Bedroom Apartment in Ilorin.',
       price: '₦ 450,000/year',
       location: 'Ilorin, tanke area.',
@@ -28,7 +28,7 @@ const Manage: React.FC = () => {
     },
     {
       id: 2,
-      image: '/images/duplex.png', // Corrected path assumption
+      image: '/bed2.png', // Corrected path assumption
       type: '2-Bedroom Duplex in Ilorin.',
       price: '₦ 600,000/year',
       location: 'Ilorin, Agric estate.',
@@ -36,7 +36,7 @@ const Manage: React.FC = () => {
     },
     {
       id: 3,
-      image: '/images/room-parlour.png', // Corrected path assumption
+      image: '/bed.png', // Corrected path assumption
       type: 'A room and parlour in Ilorin.',
       price: '₦ 220,000/year',
       location: 'Ilorin, pipeline area.',
@@ -44,7 +44,7 @@ const Manage: React.FC = () => {
     },
     {
       id: 4,
-      image: '/images/room.png', // Corrected path assumption
+      image: '/bed.png', // Corrected path assumption
       type: 'A room in Ilorin.',
       price: '₦ 150,000/year',
       location: 'Ilorin, tanke area.',
@@ -52,7 +52,7 @@ const Manage: React.FC = () => {
     },
     {
       id: 5,
-      image: '/images/self-contain.png', // Corrected path assumption
+      image: '/bed1.png', // Corrected path assumption
       type: 'Self contain in Ilorin.',
       price: '₦ 250,000/year',
       location: 'Ilorin, tanke area.',
@@ -116,14 +116,16 @@ const Manage: React.FC = () => {
           <IoIosArrowBack size={24} className="text-gray-600 mr-4 cursor-pointer" />
         </Link>
         <h1 className="text-xl sm:text-2xl font-bold text-center flex-grow">Manage Listing</h1>
-           <Link to='/manage'>
+           
+           <Link to='/third'>
         <button
           className="w-full max-w-sm py-2 px-2 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
           bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] hover:from-purple-900 hover:to-purple-600"
           >
          Approved
         </button>
-          </Link>
+            </Link>
+          
       </div>
 
       {/* Search and Filter Inputs */}

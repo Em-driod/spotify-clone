@@ -13,7 +13,7 @@ const First = () => {
 
         <div className="relative z-10">
           <p className="text-xl font-bold mb-1 flex items-center justify-between">
-            Welcome back! <span role="img" aria-label="waving hand" className="ml-2 text-2xl">👋</span>   <Link to='/signup'>
+            Welcome back! <span role="img" aria-label="waving hand" className="ml-2 text-2xl">👋</span>   <Link to='/welcome'>
         <button
           className="w-full max-w-sm py-2 px-2 rounded-lg text-lg font-bold text-white shadow-md transition-all duration-300 mb-4
           bg-gradient-to-r from-[#0d1b2a] via-[#4b0082] to-[#8b0000] hover:from-purple-900 hover:to-purple-600"
@@ -74,7 +74,7 @@ const First = () => {
           Post Property
         </button>
               </Link>
-              <Link to='/messages'>
+              <Link to='/AgentChatList'>
   
         <button className="w-full flex items-center justify-center p-4 bg-blue-800 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors">
           <svg
@@ -190,10 +190,11 @@ const First = () => {
           </div>
         </div>
         <div className="mt-6 flex justify-center">
-          
+          <Link to='/Manage'>
           <button className="px-6 py-3 bg-purple-900 text-white rounded-lg shadow-md hover:bg-purple-800 transition-colors">
             View All
           </button>
+          </Link>
         </div>
       </div>
 
@@ -233,7 +234,7 @@ const First = () => {
           </svg>
           <span className="text-xs mt-1">Search</span>
         </button>
-        <Link to='/messages'>
+        <Link to='/AgentChatList'>
         <button className="flex flex-col items-center text-gray-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -22,6 +22,9 @@ import MyListings from './pages/MyListing';
 import EditListing from './pages/EditListing';
 import Landsignup from './pages/Landsignup';
 import Landsignin from './pages/Landsignin';
+import CustomerProfile from './pages/CustomerProfile';
+
+import AgentChatListWindow from './pages/AgentChatListWindow';
 
 // Import the Edit component
 import Edit from './pages/Edit'; // <--- Make sure this path is correct based on where you saved Edit.tsx
@@ -51,7 +54,12 @@ const AnimatedRoutes = () => {
         <Route path="/landsignin" element={<Landsignin />} />
         <Route path="/Customer" element={<Customer />} />
         <Route path='/LandlordDashboard' element={<LandlordDashboard />} />
+        <Route path='/CustomerProfile' element={<CustomerProfile />} />
         <Route path='/LandlordChats' element={<LandlordChats />} />
+        <Route
+          path='/AgentChatList'
+          element={<AgentChatListWindow />}
+        />
         <Route
           path='/MyListings'
           element={
